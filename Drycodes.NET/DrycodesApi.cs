@@ -44,7 +44,7 @@ namespace Drycodes.NET
         /// <param name="qty">Quantity of city names to generate</param>
         /// <param name="separator">separator where spaces would be, default: " "</param>
         /// <returns>A string array of random city names</returns>
-        public string[] GenerateCityNames(int qty = 10, string separator = "space") => JsonConvert.DeserializeObject<string[]>(handler.NewRequest(qty.ToString() + $"?nameOptions=objects&combine=1&separator={separator}").Result.Content);
+        public string[] GenerateCityNames(int qty = 10, string separator = "space") => JsonConvert.DeserializeObject<string[]>(handler.NewRequest(qty.ToString() + $"?nameOptions=cities&combine=1&separator={separator}").Result.Content);
         /// <summary>
         /// Generates random continent names, default quantity is 10
         /// </summary>
@@ -100,7 +100,7 @@ namespace Drycodes.NET
         /// <param name="qty">Quantity of starwars characters to generate</param>
         /// <param name="separator">separator where spaces would be, default: " "</param>
         /// <returns>A string array of random starwars characters</returns>
-        public string[] StarwarsCharacters(int qty = 10, string separator = "space") => JsonConvert.DeserializeObject<string[]>(handler.NewRequest(qty.ToString() + $"?nameOptions=games&combine=1&separator={separator}").Result.Content);
+        public string[] StarwarsCharacters(int qty = 10, string separator = "space") => JsonConvert.DeserializeObject<string[]>(handler.NewRequest(qty.ToString() + $"?nameOptions=starwarsCharacters&combine=1&separator={separator}").Result.Content);
         /// <summary>
         /// Generates random starwars first names, default quantity is 10
         /// </summary>
@@ -114,14 +114,14 @@ namespace Drycodes.NET
         /// <param name="qty">Quantity of starwars last names to generate</param>
         /// <param name="separator">separator where spaces would be, default: " "</param>
         /// <returns>A string array of random starwars last names</returns>
-        public string[] StarwarsLastNames(int qty = 10, string separator = "space") => JsonConvert.DeserializeObject<string[]>(handler.NewRequest(qty.ToString() + $"?nameOptions=games&combine=1&separator={separator}").Result.Content);
+        public string[] StarwarsLastNames(int qty = 10, string separator = "space") => JsonConvert.DeserializeObject<string[]>(handler.NewRequest(qty.ToString() + $"?nameOptions=starwarsLastNames&combine=1&separator={separator}").Result.Content);
         /// <summary>
         /// Generates random starwars titles, default quantity is 10
         /// </summary>
         /// <param name="qty">Quantity of starwars titles to generate</param>
         /// <param name="separator">separator where spaces would be, default: " "</param>
         /// <returns>A string array of random starwars titles</returns>
-        public string[] StarwarsTitles(int qty = 10, string separator = "space") => JsonConvert.DeserializeObject<string[]>(handler.NewRequest(qty.ToString() + $"?nameOptions=games&combine=1&separator={separator}").Result.Content);
+        public string[] StarwarsTitles(int qty = 10, string separator = "space") => JsonConvert.DeserializeObject<string[]>(handler.NewRequest(qty.ToString() + $"?nameOptions=starwarsTitles&combine=1&separator={separator}").Result.Content);
         /// <summary>
         /// Generates random starwars planets, default quantity is 10
         /// </summary>
