@@ -15,7 +15,7 @@ namespace Tests
             {
                 Console.WriteLine(t);
             }
-            
+
         }
     }
 }
