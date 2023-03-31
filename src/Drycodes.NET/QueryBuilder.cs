@@ -7,14 +7,14 @@ namespace Drycodes.NET
     /// </summary>
     public class QueryBuilder
     {
-        private readonly List<string> _query;
+        private readonly StringBuilder _innerBuilder;
 
         /// <summary>
         ///     Creates a new <see cref="QueryBuilder"/>.
         /// </summary>
         public QueryBuilder()
         {
-            _query = new();
+            _innerBuilder = new();
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Drycodes.NET
                 sb.Append('=');
             sb.Append(queryValue);
 
-            _query.Add(sb.ToString());
+            _innerBuilder.Add(sb.ToString());
             return this;
         }
 
@@ -46,7 +46,7 @@ namespace Drycodes.NET
         /// <returns>The formatted query resulting from this builder.</returns>
         public string ToQuery()
         {
-            var joinedArgs = string.Join("&", _query);
+            var joinedArgs = string.Join("&", _innerBuilder);
 
             return '?' + joinedArgs;
         }
