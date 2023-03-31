@@ -36,7 +36,7 @@
         /// <param name="separator">The separator used to split the terms of a returned value, the default is <c>" "</c>.</param>
         /// <param name="cancellationToken">The cancellation token that can be used to signal cancellation of the inner HTTP request.</param>
         /// <returns>An asynchronous <see cref="Task"/> holding the returned values inside.</returns>
-        public async Task<string[]> GenerateManyAsync(RequestType type, int quantity = 10, string separator = "space", CancellationToken cancellationToken = default)
+        public Task<string[]> GenerateManyAsync(RequestType type, int quantity = 10, string separator = "space", CancellationToken cancellationToken = default)
         {
             if (type is null)
                 throw new ArgumentNullException(nameof(type), "The request type cannot be null.");
@@ -51,7 +51,7 @@
 
             var query = $"{quantity}{qb}";
 
-            return await _handler.RequestAsync<string[]>(query, cancellationToken);
+            return _handler.RequestAsync<string[]>(query, cancellationToken);
         }
 
         /// <summary>
@@ -95,7 +95,7 @@
         /// <param name="privileged">If the port number should be privileged or not.</param>
         /// <param name="cancellationToken">The cancellation token that can be used to signal cancellation of the inner HTTP request.</param>
         /// <returns>An asynchronous <see cref="Task"/> holding a port number as its value.</returns>
-        public async Task<int> RandomPortNumberAsync(bool privileged, CancellationToken cancellationToken = default)
+        public Task<int> RandomPortNumberAsync(bool privileged, CancellationToken cancellationToken = default)
         {
             var qb = new QueryBuilder();
 
@@ -103,7 +103,7 @@
 
             var query = $"port{qb}";
 
-            return await _handler.RequestAsync<int>(query, cancellationToken);
+            return _handler.RequestAsync<int>(query, cancellationToken);
         }
     }
 }
