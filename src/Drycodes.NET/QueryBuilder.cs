@@ -14,7 +14,8 @@ namespace Drycodes.NET
         /// </summary>
         public QueryBuilder()
         {
-            _innerBuilder = new();
+            _innerBuilder = new StringBuilder()
+                .Append('?');
         }
 
         /// <summary>
@@ -36,7 +37,8 @@ namespace Drycodes.NET
                 sb.Append('=');
             sb.Append(queryValue);
 
-            _innerBuilder.Add(sb.ToString());
+            _innerBuilder.Append(sb);
+            _innerBuilder.Append('&');
             return this;
         }
 
@@ -45,10 +47,6 @@ namespace Drycodes.NET
         /// </summary>
         /// <returns>The formatted query resulting from this builder.</returns>
         public string ToQuery()
-        {
-            var joinedArgs = string.Join("&", _innerBuilder);
-
-            return '?' + joinedArgs;
-        }
+            => _innerBuilder.ToString()[..^1];
     }
 }
