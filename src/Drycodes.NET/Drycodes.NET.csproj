@@ -7,9 +7,4 @@
     <Version>1.0.1</Version>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="RestSharp" Version="109.0.1" />
-  </ItemGroup>
-
 </Project>

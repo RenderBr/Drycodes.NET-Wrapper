@@ -8,14 +8,12 @@ namespace Tests
         {
             DrycodesApi api = new();
 
-
-            var test = api.GenerateGirlNames(100);
+            var test = api.GenerateMany(RequestType.Girls, 100);
 
             foreach (string t in test)
             {
                 Console.WriteLine(t);
             }
-
         }
     }
 }
