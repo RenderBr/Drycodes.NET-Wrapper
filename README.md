@@ -18,14 +18,14 @@ Now you have created a Drycodes API object and you can use a variety of the meth
 
 Here is an example: 
 ```csharp
-string boyName = api.GenerateBoyName();
+string boyName = api.GenerateSingle(RequestType.Boys);
 Console.WriteLine(boyName);
 ```
 And... boom! It's as simple as that. The following code will simply generate one random boy name and output it to the console.
 
 If you want to generate a list (or array, to be more specific) of names, you can do the following:
 ```csharp
-string[] objects = api.GenerateObjects();
+string[] objects = api.GenerateMany(RequestType.Objects);
 foreach(string obj in objects){
   Console.WriteLine(obj);
 }
@@ -34,13 +34,13 @@ The following code will retrieve 10 random objects, iterate through each one and
 
 There are a couple of parameters that are defaulted, but you can modify them to your liking, here are a couple examples:
 ```csharp
-string[] planets = api.GeneratePlanets(100);
+string[] planets = api.GenerateMany(RequestType.Planets, 100);
 ```
 This will generate 100 planets and store them in the string array. The default quantity, without any arguments is 10.
 
 The last parameter is a seperator between the spaces between words, this is really done for one reason, and that's because the API automatically swaps spaces for underscores. With this wrapper, I made it a bit easier for all of you and got rid of all those by default, but you can change the seperator (if you want) like so:
 ```csharp
-string game = api.GenerateGame("_!_");
+string game = api.GenerateSingle(RequestType.Games, "_!_");
 Console.WriteLine(game);
 ```
 
